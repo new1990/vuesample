@@ -16,6 +16,9 @@ export default new Router({
       path: '/users',
       name: 'UserList',
       component: UserList
-    }
+    },
+    { path: '/content/:id',
+      name: 'content',
+      component: UserList }
   ]
 })

@@ -1,12 +1,7 @@
 <template>
-  <div class="box">
-
+  <div class="detailbox">
     <p>{{ title }}</p>
     <p>{{ content }}</p>
-    <!-- <a :href="href">リストへ</a> -->
-    <router-link :to="{name:'content',params:{id:this.id}}" >詳細</router-link>
-    <!-- <router-link to="{ name: 'content', params: { id: 1 }}">リストへ</router-link> -->
-
   </div>
 </template>
 
@@ -15,18 +10,8 @@
 <script>
 
 export default {
-  name: 'ContBox',
- props: ['id','title','content'],
- // computed: {
- //   href () {
- //     return this.id
- //   }
- // },
-  // data () {
-  //   return {
-  //     msg: 'これは箱'
-  //   }
-  // }
+  name: 'DetailBox',
+ props: ['title','content'],
 }
 </script>
 

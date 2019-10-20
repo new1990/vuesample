@@ -1,12 +1,10 @@
 <template>
   <div class="hello">
-    <h1>{{ msg }}</h1>
-    <h2>Essential Links</h2>
-    <cont-box v-for="post in posts"
+    <cont-box v-for="post in info"
             v-bind:key="post.id"
-            v-bind:title="post.title"></cont-box>
-    <router-link to="/users">リストへ</router-link>
-    {{ info }}
+            v-bind:id="post.id"
+            v-bind:title="post.title"
+            v-bind:content="post.content"></cont-box>
 
   </div>
 </template>
@@ -36,8 +34,8 @@ export default {
   ,
   mounted () {
     axios
-      .get('https://api.coindesk.com/v1/bpi/currentprice.json')
-      .then(response => (this.info = response))
+      .get('http://192.168.99.100:3000/posts')
+      .then(response => (this.info = response.data))
   }
 
 }
