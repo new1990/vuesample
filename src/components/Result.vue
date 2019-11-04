@@ -2,43 +2,44 @@
   <div class="hello">
 
     <div class="tab_wrap">
-  	<input id="tab1" type="radio" name="tab_btn" checked>
-  	<input id="tab2" type="radio" name="tab_btn">
+  	<input id="tab1" type="radio" name="tab_btn" >
+  	<input id="tab2" type="radio" name="tab_btn" checked>
   	<!-- <input id="tab3" type="radio" name="tab_btn"> -->
 
   	<div class="tab_area">
-  		<label class="tab1_label" for="tab1">投票受付中</label>
-      <router-link to="/result">
-  		    <label class="tab2_label" for="tab2">結果</label>
+      <router-link to="/">
+  		    <label class="tab1_label" for="tab1">投票受付中</label>
       </router-link>
+
+  		<label class="tab2_label" for="tab2">結果</label>
+
   		<!-- <label class="tab3_label" for="tab3">tab3</label> -->
   	</div>
-  	<div class="panel_area">
-  		<div id="panel1" class="tab_panel">
-        <cont-box v-for="post in info"
-                v-bind:key="post.id"
-                v-bind:id="post.id"
-                type ="list"
-                v-bind:cdata="post.cdata"
-                v-bind:cdata_count="post.cdata.length"
-                v-bind:title="post.title"
-                v-bind:content="post.content"
-                v-bind:deadline="post.deadline"></cont-box>
+
+  		<div class="panel_area" >
+        <div id="panel2" class="tab_panel">
+
+            <cont-box v-for="post in info"
+                    v-bind:key="post.id"
+                    v-bind:id="post.id"
+                    type ="chart"
+                    v-bind:cdata="post.cdata"
+                    v-bind:cdata_count="post.cdata.length"
+                    v-bind:title="post.title"
+                    v-bind:content="post.content"
+                      v-bind:deadline="post.deadline"
+                    ></cont-box>
 
 
-            <!-- InfiniteLoadingコンポーネントを定義 -->
+                <!-- InfiniteLoadingコンポーネントを定義 -->
 
-           <!-- <infinite-loading @infinite="infiniteHandler" />
-          -->
-          <infinite-loading
-            ref="infiniteLoading"
-            spinner="bubbles"
-            @infinite="infiniteHandler">
-            <span slot="no-more"></span>
-          </infinite-loading>
-  		</div>
-  		<div id="panel2" class="tab_panel">
-  			<p>panel2</p>
+                <infinite-loading
+                  ref="infiniteLoading"
+                  spinner="bubbles"
+                  @infinite="infiniteHandler">
+                  <span slot="no-more"></span>
+                </infinite-loading>
+
   		</div>
   		<!-- <div id="panel3" class="tab_panel">
   			<p>panel3</p>
@@ -61,12 +62,12 @@
 import axios from 'axios'
 import ContBox from "@/components/ContBox.vue";
 import InfiniteLoading from 'vue-infinite-loading';
-const api = 'http://192.168.99.100:3000/posts'
+const api = 'http://192.168.99.100:3000/result'
 
 
 
 export default {
-  name: 'HelloWorld',
+  name: 'Result',
   components: {
     ContBox,
     InfiniteLoading
@@ -116,9 +117,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h1, h2 {
-  font-weight: normal;
-}
+
 
 
 .tab_wrap{width:500px; margin:80px auto;}

@@ -1,5 +1,8 @@
 <template>
 <div class="box">
+  <div class="result_erea">
+
+  </div>
   <InputBox/>
 </div>
 </template>

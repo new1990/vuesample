@@ -1,9 +1,36 @@
 <template>
   <div class="hello">
-    <detail-box
-            v-bind:key="info.id"
-            v-bind:title="info.title"
-            v-bind:content="info.content"></detail-box>
+
+    <div class="result_erea">
+
+    </div>
+
+    <dl v-if="info">
+      <detail-box
+              v-bind:key="info.id"
+              v-bind:title="info.title"
+              v-bind:cdata="info.cdata"
+              v-bind:cdata_count="info.cdata.length"
+              v-bind:deadline_flg="info.show_flg"
+
+              v-bind:content="info.content"></detail-box>
+     </dl>
+      <!-- コメント投稿 -->
+     <coment-box
+        desighn="button"></coment-box>
+     <!-- コメント投稿 -->
+     <dl v-if="info.comment_data">
+     <!-- コメント内容 -->
+     <coment-list v-for="comment in info.comment_data"
+          v-bind:id="comment.comment_id"
+          v-bind:body="comment.comment_body"
+                  ></coment-list>
+      </dl>
+    <!-- コメント内容 -->
+
+
+
+
   </div>
 
 </template>
@@ -13,21 +40,25 @@
 <script>
 import axios from 'axios'
 import DetailBox from "@/components/DetailBox.vue";
+import ComentBox from "@/components/ComentBox.vue";
+import ComentList from "@/components/ComentList.vue";
 
 export default {
   name: 'UserList',
   components: {
-    DetailBox
+    DetailBox,
+    ComentBox,
+    ComentList
   },
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App',
+
       info: null,
-        posts: [
-        { id: 1, title: 'My journey with Vue' },
-        { id: 2, title: 'Blogging with Vue' },
-        { id: 3, title: 'Why Vue is so fun' }
-      ]
+      id: null,
+      title: null,
+      cdata: null,
+      content: null,
+      comment_data:null,
     }
   }
   ,
