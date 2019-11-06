@@ -61,7 +61,7 @@
 import axios from 'axios'
 import ContBox from "@/components/ContBox.vue";
 import InfiniteLoading from 'vue-infinite-loading';
-const api = 'http://192.168.99.100:3000/posts'
+const api = 'http://13.115.98.196:3000/posts'
 
 
 

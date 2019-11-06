@@ -43,7 +43,7 @@ export default {
    },
 
    createNewComment: function(){
-     axios.post('http://192.168.99.100:3000/comment_create', { comment: { body: this.comment,posts_id: this.$route.params.id } }).then((response) => {
+     axios.post('http://13.115.98.196:3000/comment_create', { comment: { body: this.comment,posts_id: this.$route.params.id } }).then((response) => {
        // データ受け取り
         (this.result_data = response.data)
         if(this.result_data.color == 'green'){

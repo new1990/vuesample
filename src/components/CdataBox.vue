@@ -36,7 +36,7 @@ export default {
  props: ['id','title','count_val','className'],
  methods : {
    update_count: function (event) {
-     axios.put('http://192.168.99.100:3000/posts/'+ this.id, { task: { count: 1} }).then((response) => {
+     axios.put('http://13.115.98.196:3000/posts/'+ this.id, { task: { count: 1} }).then((response) => {
        // データ受け取り
         (this.result_data_csl = response.data)
         if(this.result_data_c.color == 'green'){
@@ -53,7 +53,7 @@ export default {
        }, (error) => {
          console.log(error);
       });
-      
+
     }
 
  },
