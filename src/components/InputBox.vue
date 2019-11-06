@@ -70,7 +70,7 @@ components: {
 
   methods : {
     createNewUser: function(){
-      axios.post('http://13.115.98.196:3000/posts', { task: { title: this.title,content: this.content ,day:this.day,hour:this.hour,todo: this.task} }).then((response) => {
+      axios.post('//13.115.98.196:3000/posts', { task: { title: this.title,content: this.content ,day:this.day,hour:this.hour,todo: this.task} }).then((response) => {
 
         }, (error) => {
           console.log(error);

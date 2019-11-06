@@ -64,7 +64,7 @@ export default {
   ,
   mounted () {
     axios
-      .get('http://13.115.98.196:3000/posts/'+ this.$route.params.id)
+      .get('//13.115.98.196:3000/posts/'+ this.$route.params.id)
       .then(response => (this.info = response.data))
   }
 
