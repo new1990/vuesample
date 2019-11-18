@@ -8,7 +8,7 @@
         </div>
         <div class="text-links">
           <div class="text-link-wrapper">
-            <router-link to="/">質問BOX</router-link>
+            <router-link to="/">投票BOX</router-link>
 
           </div>
         </div>
